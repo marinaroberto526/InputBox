@@ -1,0 +1,25 @@
+Import-Module ActiveDirectory
+
+ #Enter a path to your import CSV file
+     $ADUser = Import-csv C:\ADS\NewHiresRev1.csv
+
+    $OU = "JOB TITLE 1","JOB Title 2","JOB Title 3"
+
+  
+       $Domain              = "mydomain.com"
+       $Username             = $user.FirstName + "." + $user.LastName
+       $Password            = "Welcome"+$user.employeenumber+"!"
+       $secpasswd           = ConvertTo-SecureString $Password -AsPlainText -Force
+       $GivenName           = $user.firstname
+       $Surname             = $user.lastname
+       $Name                  = $user.firstname + " " + $user.lastname
+       $DisplayName          = $user.firstname + " " + $user.lastname
+       $Description           = $user.job
+       $UserPrincipalName      = $user.firstname + "." + $user.lastname + "@" + $Domain
+       $Enable                 = $true
+       $ChangePasswordAtLogon    = $false
+       $Organization          = "ScriptedUsers"
+       $Department           = "Operations"
+       $Office               = $user.job
+       $Company              = "Company Inc."
+       $Manager               = "Manager Name"
